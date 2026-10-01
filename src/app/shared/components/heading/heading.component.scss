@@ -1,0 +1,35 @@
+@import 'vars.scss';
+
+h2 {
+  font-family: "Montserrat-700";
+  text-align: center;
+  font-size: 74px;
+  line-height: 90.21px;
+  letter-spacing: -0.03em;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+  text-decoration: underline;
+  text-decoration-color: $primary-color;
+}
+
+@media (max-width: 768px) {
+  h2 {
+    font-size: 32px;
+    line-height: 50px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 992px) {
+  h2 {
+    font-size: 48px;
+    line-height: 70px;
+  }
+}
+
+@media (min-width: 992px) and (max-width: 1200px) {
+  
+}
+
+@media (min-width: 1200px) {
+
+}

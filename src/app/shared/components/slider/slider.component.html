@@ -1,0 +1,14 @@
+<div 
+  class="slider" 
+  (swipeleft)="nextSlide()" 
+  (swiperight)="prevSlide()">
+  <ng-image-slider 
+    #nav
+    [images]="slides"
+    [slideImage]="slideImage"
+    [lazyLoading]="true"
+    [imageSize]="{width: isMobileDevice ? '50%' : '550px', height: isMobileDevice ? '280px' : '380px', space: 4}"
+    (imageClick)="onImageClick()"
+    (lightboxClose)="onLightboxClose()">
+  </ng-image-slider>
+</div>

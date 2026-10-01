@@ -1,0 +1,39 @@
+@import "vars.scss";
+
+h2,
+h4 {
+  font-family: "Montserrat-700";
+  text-align: center;
+}
+
+h2 {
+  font-size: 74px;
+  line-height: 90.21px;
+  letter-spacing: -0.03em;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+  text-decoration: underline;
+  text-decoration-color: $primary-color;
+}
+
+h4 {
+  font-size: 32px;
+  line-height: 39.01px;
+  letter-spacing: 0.03em;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+}
+
+p {
+  font-size: 24px;
+  line-height: 29.26px;
+  text-align: justify;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+}
+
+::ng-deep {
+  .compas-icon {
+    top: 35% !important
+  }
+}

@@ -1,0 +1,42 @@
+@import "vars.scss";
+
+.loader-wrapper {
+  position: relative;
+  min-height: 100vh;
+  min-width: 100vw;
+}
+
+.loader {
+  width: 0;
+  height: 0;
+  position: absolute;
+  top: calc(50% - 48px);
+  left: calc(50% - 48px);
+}
+.loader:before,
+.loader:after {
+  content:"";
+  display: block;
+  border: 48px solid transparent;
+  border-color: transparent transparent $primary-color  $primary-color;
+  position: absolute;
+  left: 0;
+  top: 0;
+  animation: mvx 1s infinite ease-in;
+}
+.loader:before {
+  left: -1px;
+  top: 1px;
+  border-color:$primary-color  $primary-color transparent transparent;
+  animation-name:mvrx;
+}
+@keyframes mvx {
+  0% , 25% {transform: translate(0 , 0) rotate(0deg)}
+  50% {transform: translate(-50% , 50%) rotate(180deg)}
+  100% {transform: translate(0% , 0%) rotate(180deg)}
+}
+@keyframes mvrx {
+  0% , 25%  {transform: translate(0 , 0) rotate(0deg)}
+  50% {transform: translate(50% , -50%) rotate(180deg)}
+  100% {transform: translate(0% , 0%) rotate(180deg)}
+}

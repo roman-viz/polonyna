@@ -1,0 +1,90 @@
+@import 'vars.scss';
+
+.paragraphs {
+  display: flex;
+  flex-direction: row;
+  gap: 50px;
+  margin: 0 120px;
+}
+
+::ng-deep {
+  .map {
+    position: relative;
+    z-index: -1;
+    svg {
+      margin-top: -25%;
+      margin-left: -5%;
+    }
+  }
+}
+
+.count {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  line-height: 1;
+  background-color: $primary-color;
+  border-radius: 50%;
+  width: 35px;
+  height: 35px;
+}
+
+.background-video {
+  width: 99.5vw;
+  height: 100vh;
+  object-fit: cover;
+  box-shadow: rgba(0, 0, 0, 0.65) 0px 5px 15px;
+  margin: 0;
+  padding: 0;
+}
+
+.paragraph-column {
+  display: flex;
+  flex-direction: row;
+  gap: 65px;
+
+  img {
+    margin-top: 1em;
+    max-height: 550px;
+  }
+}
+
+@media (min-width: 320px) and (max-width: 576px) {
+  .paragraphs {
+    flex-direction: column;
+    gap: 0;
+  }
+}
+
+@media (max-width: 992px) {
+  .paragraph-column {
+    flex-direction: column;
+    gap: 10px;
+
+    &:nth-child(2) {
+      flex-direction: column-reverse;
+    }
+  }
+
+  .paragraphs {
+    margin: 0 0 25% 0;
+  }
+
+  .count {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+
+@media (min-width: 993px) {
+  .paragraphs {
+    margin: 0 60px;
+  }
+
+  .paragraph-column {
+    img {
+      max-width: 45%;
+    }
+  }
+}

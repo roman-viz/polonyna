@@ -1,0 +1,16 @@
+<div #hero id="hero" class="hero-wrapper">
+  <div class="bg bg-1"></div>
+  <div class="bg bg-2"></div>
+
+  <h1>
+    <span>Полонина</span>
+    <span>Роза Вітрів</span>
+  </h1>
+
+  <div class="clouds">
+    <img class="clouds-1" [ngStyle]="{'left': clouds1Position}" src="/assets/images/bg-images/clouds1.webp">
+    <img class="clouds-2" [ngStyle]="{'right': clouds2Position}" src="/assets/images/bg-images/clouds2.webp">
+  </div>
+  
+  <app-wind-rose-icon class="wind-rose-icon" [style.transform]="iconRotateStyle"></app-wind-rose-icon>
+</div>

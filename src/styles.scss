@@ -1,1 +1,67 @@
-/* You can add global styles to this file, and also import other style files */
+@import 'vars';
+
+@font-face {
+  font-family: 'Montserrat-700';
+  src: url('/assets/fonts/Montserrat-Bold.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Montserrat-400';
+  src: url('/assets/fonts/Montserrat-Regular.ttf') format('truetype');
+}
+
+$z-index-values: 1, 10, 100, 1000;
+
+@each $z in $z-index-values {
+  .z-#{$z} {
+    z-index: $z;
+    position: relative;
+  }
+}
+
+* {
+  font-family: "Montserrat-400";
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  width: 70vw;
+  margin: 0 auto;
+  height: auto;
+}
+
+body {
+  --sb-size: 8px;
+}
+
+body::-webkit-scrollbar {
+  width: var(--sb-size)
+}
+
+body::-webkit-scrollbar-track {
+  background: #ffffff00;
+  border-radius: 4px;
+}
+
+body::-webkit-scrollbar-thumb {
+  background: $primary-color;
+  border-radius: 4px;
+}
+
+@supports not selector(::-webkit-scrollbar) {
+  body {
+    scrollbar-color: var(--sb-thumb-color) var(--sb-track-color);
+  }
+}
+
+.text-link {
+  text-decoration: none;
+  border-bottom: 2px solid $primary-color;
+  border-radius: 4px;
+  padding: 0 15px;
+  box-shadow: rgba(50, 50, 93, .25) 0 50px 100px -20px, rgba(0, 0, 0, .3) 0 30px 60px -30px, rgba(10, 37, 64, .35) 0 -2px 6px 0 inset;
+}

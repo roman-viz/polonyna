@@ -1,0 +1,13 @@
+<section 
+  [id]="id" 
+  class="section"
+  [class.left-icon]="iconPosition === 'left'"
+  [class.right-icon]="iconPosition === 'right'">
+  <div class="container">
+    <ng-content></ng-content>
+  </div>
+
+  <div class="compass-icon">
+    <img src="/assets/icons/compass.webp">
+  </div>
+</section>

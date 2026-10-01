@@ -1,0 +1,118 @@
+@import 'vars.scss';
+
+.footer {
+  position: relative;
+  padding: 60px 0;
+  background: rgba(3, 62, 38, 0.55);
+
+  .content {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    min-height: 120px;
+  }
+}
+
+.lines {
+  margin: 15px 0;
+
+  span {
+    display: block;
+    width: 80%;
+    height: 3px;
+    margin: 0 auto;
+    background-color: $primary-color;
+    border-radius: 24px;
+  }
+
+  span:nth-child(2) {
+    width: 70%;
+    margin-top: 24px;
+    height: 1px;
+  }
+}
+
+.bottom {
+  transform: rotate(180deg);
+}
+
+.compass {
+  position: absolute;
+  height: 120px;
+  width: 120px;
+  left: 8%;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.icons {
+  display: flex;
+  flex-direction: row;
+  gap: 50px;
+  
+  svg {
+    height: 36px;
+    width: 36px;
+
+    &:hover {
+      transform: scale(1.2);
+      transition: transform 0.2s ease;
+      filter: brightness(0) saturate(100%) invert(94%) sepia(81%) saturate(1517%) hue-rotate(332deg) brightness(104%) contrast(103%);
+    }
+  }
+}
+
+@media (min-width: 320px) and (max-width: 576px) {
+  .footer {
+    padding: 30px 0;
+
+    .compass {
+      left: 5%;
+    }
+
+    img {
+      width: 64px;
+      height: 64px;
+    }
+
+    .lines {
+      margin: 0;
+    }
+
+    .icons {
+      margin-left: 15%;
+      gap: 25px;
+
+      svg {
+        height: 25px;
+        width: 25px;
+      }
+    }
+  }
+}
+
+@media (min-width: 577px) and (max-width: 992px) {
+  .footer {
+    padding: 30px 0;
+
+    img {
+      width: 100px;
+      height: 100px;
+    }
+
+    .lines {
+      margin: 0;
+    }
+
+    .icons {
+      margin-left: 15%;
+      gap: 35px;
+
+      svg {
+        height: 25px;
+        width: 25px;
+      }
+    }
+  }
+}

@@ -1,0 +1,42 @@
+<nav class="menu">
+  <ul>
+    <ng-container *ngFor="let link of links">
+      <li *ngIf="link.visible" class="link-item" [class.active-link]="currentSection === link.address">
+        <a *ngIf="link.isSection" [href]="'#' + link.address" role="button"
+          (click)="scrollToSection($event, link.address)">{{link.displayName}}</a>
+
+        <a *ngIf="!link.isSection" role="button" routerLinkActive="active-link"
+          [routerLink]="'/' + link.address">{{link.displayName}}</a>
+      </li>
+    </ng-container>
+  </ul>
+</nav>
+
+<div class="mobile-menu">
+  <div class="menu-overlay" *ngIf="isMenuOpen" (click)="toggleMenu()"></div>
+  <div class="menu-panel" [class.open]="isMenuOpen">
+    <button class="close-btn" (click)="toggleMenu()">&#x2715;</button>
+    <nav>
+      <ul>
+        <ng-container *ngFor="let link of links">
+          <li 
+            *ngIf="link.visible" 
+            class="link-item" 
+            (click)="toggleMenu()"
+            [class.active-link]="currentSection === link.address">
+              <a *ngIf="link.isSection" [href]="'#' + link.address" role="button"
+                (click)="scrollToSection($event, link.address)">{{link.displayName}}</a>
+
+              <a *ngIf="!link.isSection" role="button" routerLinkActive="active-link"
+                [routerLink]="'/' + link.address">{{link.displayName}}</a>
+          </li>
+        </ng-container>
+      </ul>
+    </nav>
+  </div>
+  <button class="burger-btn" (click)="toggleMenu()">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+</div>

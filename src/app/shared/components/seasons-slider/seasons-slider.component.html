@@ -1,0 +1,39 @@
+<div class="wrapper">
+  <div class="slider">
+    <div class="bg-image" [ngClass]="{'visible': isVisible}"
+      [ngStyle]="{'background-image': 'url(' + slides[currentSlideIndex].bg + ')'}">
+    </div>
+
+    <div class="compass">
+      <img src="/assets/icons/compass.webp">
+      <div class="line"></div>
+    </div>
+
+    <div class="images">
+      <img [src]="slides[currentSlideIndex].img1" [ngClass]="{'visible': isVisible}">
+      <img [src]="slides[currentSlideIndex].img2" [ngClass]="{'visible': isVisible}">
+
+      <div class="line"></div>
+      <div class="line-bottom"></div>
+    </div>
+
+    <div class="description" [ngClass]="{'visible': isVisible}">
+      <app-sub-heading>
+        {{slides[currentSlideIndex].heading}}
+      </app-sub-heading>
+
+      <app-paragraph *ngFor="let paragraph of slides[currentSlideIndex]?.paragraphs">
+        {{paragraph}}
+      </app-paragraph>
+    </div>
+  </div>
+
+  <div class="navigation">
+    <button class="left" (click)="prevSlide()">
+      <app-arrow-icon></app-arrow-icon>
+    </button>
+    <button class="right" (click)="nextSlide()">
+      <app-arrow-icon></app-arrow-icon>
+    </button>
+  </div>
+</div>

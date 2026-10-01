@@ -1,0 +1,61 @@
+@import "vars.scss";
+
+.slider {
+  margin: 60px 0 60px -21.5%;
+  width: 142.5%;
+  z-index: 10;
+  position: relative;
+}
+
+::ng-deep {
+  .ng-image-slider .ng-image-slider-container .main .main-inner .img-div img {
+    object-fit: cover;
+    pointer-events: none;
+  }
+
+  .ng-image-slider .ng-image-slider-container .main {
+
+    .prev,
+    .next {
+      color: $primary-color;
+      background-color: rgba(0, 0, 0, 0.5) !important;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .prev.disable,
+    .next.disable {
+      color: $primary-color !important;
+      background-color: rgba(45, 35, 66, 0.4) !important;
+    }
+  }
+
+  .ng-image-slider .ng-image-slider-container .main .main-inner .img-div .caption {
+    font-family: "Montserrat-700";
+    font-size: 16px;
+    line-height: 20px;
+  }
+
+  .ng-image-fullscreen-view {
+    .menu {
+      display: none;
+    }
+  }
+
+  .ng-image-fullscreen-view .lightbox-wrapper {
+    .close {
+      top: 30px !important;
+      left: 45px !important;
+      background-color: $primary-color !important;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .next, .prev {
+      background-color: $primary-color !important;
+      -webkit-tap-highlight-color: transparent;
+    } 
+
+    .caption {
+      top: 95% !important;
+    }
+  }
+}

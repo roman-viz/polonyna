@@ -1,0 +1,160 @@
+@import "vars.scss";
+
+::ng-deep {
+  html {
+    --s: 135px;
+    /* control the size*/
+    --c1: #96b1fe;
+    --c3: #ffcaaf;
+  
+    --_g: var(--c3) 0 120deg, #0000 0;
+    background:
+      conic-gradient(from -60deg at 50% calc(100%/3), var(--_g)),
+      conic-gradient(from 120deg at 50% calc(200%/3), var(--_g)),
+      conic-gradient(from 60deg at calc(200%/3), var(--c3) 60deg, $primary-color 0 120deg, #0000 0),
+      conic-gradient(from 180deg at calc(100%/3), var(--c1) 60deg, var(--_g)),
+      linear-gradient(90deg, var(--c1) calc(100%/6), $primary-color 0 50%,
+        var(--c1) 0 calc(500%/6), $primary-color 0);
+    background-size: calc(1.732*var(--s)) var(--s);
+  }
+}
+
+.gallery {
+  position: relative;
+  min-height: 100vh;
+}
+
+.gallery-items {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  list-style-type: none;
+  padding: 0 20px;
+}
+
+.gallery-item {
+  flex-basis: 300px;
+  width: auto;
+  height: 300px;
+  position: relative;
+  flex: 1 1 auto;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+
+img {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+  height: 100%;
+  width: 100%;
+  -o-object-fit: cover;
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  vertical-align: middle;
+  border-radius: 10px;
+  -webkit-user-drag: none;
+  user-drag: none;
+  pointer-events: all;  
+}
+
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.preview-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 90vw; 
+  max-height: 90vh;
+  width: auto; 
+  height: auto; 
+}
+
+.preview-image {
+  max-width: 800px;
+  max-height: 700px;
+  object-fit: contain;
+  cursor: pointer;
+}
+
+.loader {
+  display: block;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  position: relative;
+  animation: rotate 1s linear infinite;
+  margin: 15px auto;
+}
+
+.loader::before,
+.loader::after {
+  content: "";
+  box-sizing: border-box;
+  position: absolute;
+  inset: 0px;
+  border-radius: 50%;
+  border: 5px solid #000;
+  animation: prixClipFix 2s linear infinite;
+}
+
+.loader::after {
+  border-color: $primary-color;
+  animation: prixClipFix 2s linear infinite, rotate 0.5s linear infinite reverse;
+  inset: 6px;
+}
+
+.centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg)
+  }
+
+  100% {
+    transform: rotate(360deg)
+  }
+}
+
+@keyframes prixClipFix {
+  0% {
+    clip-path: polygon(50% 50%, 0 0, 0 0, 0 0, 0 0, 0 0)
+  }
+
+  25% {
+    clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 0, 100% 0, 100% 0)
+  }
+
+  50% {
+    clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 100%, 100% 100%, 100% 100%)
+  }
+
+  75% {
+    clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 100%, 0 100%, 0 100%)
+  }
+
+  100% {
+    clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 100%, 0 100%, 0 0)
+  }
+}

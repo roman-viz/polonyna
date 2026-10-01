@@ -1,0 +1,15 @@
+<div class="gallery">
+  <ul class="gallery-items">
+    <li *ngFor="let image of displayedImages" class="gallery-item">
+      <img [src]="image" alt="Gallery Image" (click)="previewImage(image)">
+    </li>
+  </ul>
+
+  <span *ngIf="isLoading" class="loader" [class.centered]="!displayedImages.length"></span>
+
+  <div class="backdrop" *ngIf="previewedImage" (click)="closePreview()">
+    <div class="preview-container" (click)="$event.stopPropagation()">
+      <img [src]="previewedImage" alt="Preview Image" class="preview-image" (click)="closePreview()">
+    </div>
+  </div>
+</div>

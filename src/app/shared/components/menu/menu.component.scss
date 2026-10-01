@@ -1,0 +1,204 @@
+@import 'vars.scss';
+
+.menu {
+  position: fixed;
+  top: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000;
+
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+  }
+
+  li {
+    -webkit-tap-highlight-color: transparent;
+    outline: none;
+    background: none;
+    box-shadow: none;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  a:hover,
+  a:focus,
+  a:active {
+    text-decoration: none;
+  }
+}
+
+.link-item a {
+  align-items: center;
+  appearance: none;
+  background-image: radial-gradient(100% 100% at 100% 0, #5adaff 0, $menu-btn-color 100%);
+  border: 0;
+  border-radius: 20px;
+  box-shadow: rgba(45, 35, 66, .4) 0 2px 4px, rgba(45, 35, 66, .3) 0 7px 13px -3px, rgba(58, 65, 111, .5) 0 -3px 0 inset;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  display: inline-flex;
+  font-family: "Montserrat-700";
+  height: 48px;
+  justify-content: center;
+  line-height: 1;
+  list-style: none;
+  overflow: hidden;
+  padding-left: 16px;
+  padding-right: 16px;
+  position: relative;
+  text-align: left;
+  text-decoration: none;
+  transition: box-shadow .15s, transform .15s;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  white-space: nowrap;
+  will-change: box-shadow, transform;
+  font-size: 18px;
+  opacity: 0.85;
+}
+
+.link-item a:hover {
+  box-shadow: rgba(45, 35, 66, .4) 0 4px 8px, rgba(45, 35, 66, .3) 0 7px 13px -3px, #3c4fe0 0 -3px 0 inset;
+  transform: translateY(-2px);
+}
+
+.active-link a {
+  background-image: radial-gradient(100% 100% at 100% 0, #5adaff 0, $primary-color 100%);
+  color: $menu-btn-color;
+}
+
+.mobile-menu {
+  display: none;
+  
+  :host {
+    position: relative; 
+  }
+
+  -webkit-user-select: none;
+  -webkit-tap-highlight-color: none;
+
+  .menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 9999;
+  }
+
+  .menu-panel {
+    position: fixed;
+    top: 0;
+    right: -300px;
+    width: 250px;
+    height: 100%;
+    background-color: #ffffff;
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+    z-index: 99999;
+    padding: 1rem;
+    background-image: url('/assets/images/bg-images/primary-bg.webp');
+    background-position: left top;
+    background-size: contain;
+    background-repeat: repeat-y;
+  }
+
+  .menu-panel.open {
+    transform: translateX(-300px);
+  }
+
+  nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  nav ul li {
+    margin: 1rem 0;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  nav ul li a {
+    text-decoration: none;
+    color: #333;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .burger-btn {
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    top: 1rem;
+    right: 1rem;
+    background: none;
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+    z-index: 9999;
+    background: $primary-color;
+    opacity: 0.5;
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(3.8px);
+    -webkit-backdrop-filter: blur(3.8px);
+    -webkit-tap-highlight-color: transparent;
+    user-select: none;
+    padding: 8px;
+
+    span {
+      display: block;
+      width: 32px;
+      height: 5px;
+      border-radius: 8px;
+      background-color: black;
+      -webkit-tap-highlight-color: none;
+      user-select: none;
+    }
+  }
+
+  .close-btn {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+  }
+}
+
+@media (max-width: 767px) {
+  .mobile-menu {
+    display: block;
+  }
+
+  .menu {
+    display: none;
+  }
+}
+
+@media (min-width: 768px) {
+  .mobile-menu {
+    display: none;
+  }
+
+  .menu {
+    display: block;
+  }
+}
